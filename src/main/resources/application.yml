@@ -1,0 +1,13 @@
+server:
+  port: 90
+management:
+  endpoints:
+    web:
+      base-path: /
+  endpoint:
+    info:
+      enabled: false
+spring:
+  main:
+    log-startup-info: OFF
+    lazy-initialization: true

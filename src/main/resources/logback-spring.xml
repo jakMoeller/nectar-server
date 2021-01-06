@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOGS" value="./logs" />
+
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable
+            </Pattern>
+        </layout>
+    </appender>
+
+    <appender name="PUB_SUB_CLOCK_LEAP" class="ch.qos.logback.core.FileAppender">
+        <file>./logs/pubsub.clockleap.log</file>
+        <append>true</append>
+        <encoder>
+            <Pattern>
+                %msg%n%throwable
+            </Pattern>
+        </encoder>
+    </appender>
+    <logger name="pubsub.clockleap" level="debug" additivity="false">
+        <appender-ref ref="PUB_SUB_CLOCK_LEAP"/>
+    </logger>
+
+    <!-- LOG everything at INFO level -->
+    <root level="info">
+        <appender-ref ref="Console" />
+    </root>
+
+</configuration>
